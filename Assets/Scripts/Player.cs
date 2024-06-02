@@ -9,9 +9,11 @@ public class Player : MonoBehaviour
     private List<GameObject> allObjects;
 
     [SerializeField] private float speed = 5f;
-    [SerializeField] private float range = 2f;
+    [SerializeField] private float range = 10f;
     [SerializeField] private int inventory = 0;
     [SerializeField] private int capacity = 5;
+    [SerializeField] private Transform fence;
+
     
 
     void Start()
@@ -24,31 +26,39 @@ public class Player : MonoBehaviour
     void Update()
     {
         Movement();
-        CollectObject();
+        ObjectAction();
     }
 
 
     void Movement()
     {
+        
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            
+
+
             if (Physics.Raycast(ray, out hit))
             {
                 movePosition = hit.point;
                 movePosition.y = transform.position.y;
             }
         }
+        Vector3 targetDirection = movePosition - transform.position;
+        Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, 2 * Time.deltaTime, 0);
+        transform.rotation = Quaternion.LookRotation(newDirection);
         transform.position = Vector3.MoveTowards(transform.position, movePosition, speed * Time.deltaTime);
 
     }
 
-    void CollectObject()
+    void ObjectAction()
     {
         if (Input.GetMouseButtonDown(1))
         {
-            if (GetNearestObjectDistance() < range)
+            if (GetNearestObjectDistance() <= range)
             {
                 if (inventory < capacity)
                 {
@@ -60,8 +70,18 @@ public class Player : MonoBehaviour
                 }
 
             }
+            else
+            {
+                if (inventory > 0)
+                {
+                    Vector3 spawnPos = transform.position;
+                    Instantiate(fence, spawnPos, transform.rotation);
+                    inventory--;
+                }
+            }
         }
     }
+
 
     GameObject GetNearestObject()
     {
