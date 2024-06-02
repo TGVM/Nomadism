@@ -13,8 +13,8 @@ public class Player : MonoBehaviour
     [SerializeField] private int inventory = 0;
     [SerializeField] private int capacity = 5;
     [SerializeField] private Transform fence;
+    [SerializeField] private Transform spawnPoint;
 
-    
 
     void Start()
     {
@@ -74,8 +74,13 @@ public class Player : MonoBehaviour
             {
                 if (inventory > 0)
                 {
-                    Vector3 spawnPos = transform.position;
-                    Instantiate(fence, spawnPos, transform.rotation);
+                    Transform prefab;
+                    Vector3 spawnPos = spawnPoint.transform.position;
+                    Quaternion spawnRot = transform.rotation * Quaternion.Euler(new Vector3(0, 90, 0));
+                    //spawnRot = spawnRot * (0, 90, 0);
+                    prefab = Instantiate(fence, spawnPos, spawnRot );
+                    //prefab.rotation = spawnRot;
+
                     inventory--;
                 }
             }
