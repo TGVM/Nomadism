@@ -6,17 +6,17 @@ GameDoc: https://docs.google.com/document/d/1jWNeAnxgz9kS2-QmuflvmUAesLwplyN3HmB
 ToDo:
 
 - Gameplay:
-> Ending Run
-> Procedural generation of maps
-> Upgrades and related new mechanics
-> Minimap
+> Ending Run <br>
+> Procedural generation of maps<br>
+> Upgrades and related new mechanics<br>
+> Minimap<br>
 
 - UI:
-> Menus: Initial, pause, upgrade
-> Game over screen
+> Menus: Initial, pause, upgrade<br>
+> Game over screen<br>
 
 - Others:
-> UI Icons
-> SFX & Music
-> Post-processing
-> Better models
+> UI Icons<br>
+> SFX & Music<br>
+> Post-processing<br>
+> Better models<br>
