@@ -6,7 +6,6 @@ GameDoc: https://docs.google.com/document/d/1jWNeAnxgz9kS2-QmuflvmUAesLwplyN3HmB
 ToDo:
 
 - Gameplay:
-> Ending Run <br>
 > Procedural generation of maps<br>
 > Upgrades and related new mechanics<br>
 > Minimap<br>
