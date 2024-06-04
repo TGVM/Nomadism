@@ -12,7 +12,6 @@ ToDo:
 
 - UI:
 > Menus: Initial, pause, upgrade<br>
-> Game over screen<br>
 
 - Others:
 > UI Icons<br>
