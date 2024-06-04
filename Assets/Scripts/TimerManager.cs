@@ -8,6 +8,8 @@ public class TimerManager : MonoBehaviour
 
     private float currentRunTimer = 0f;
 
+    private bool running = true;
+
 
     // Start is called before the first frame update
     void Awake()
@@ -18,13 +20,23 @@ public class TimerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currentRunTimer += Time.deltaTime;
+        if(running) currentRunTimer += Time.deltaTime;
     }
 
 
     public float GetCurrentRunTimer()
     {
         return currentRunTimer;
+    }
+
+    public void StopRun()
+    {
+        running = false;
+    }
+
+    public bool IsRunning()
+    {
+        return running;
     }
 
 }

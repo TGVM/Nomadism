@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 {
     private Vector3 movePosition;
     private List<GameObject> allObjects;
+    private bool canControl = true;
 
     [SerializeField] private float speed = 5f;
     [SerializeField] private float range = 10f;
@@ -14,6 +15,8 @@ public class Player : MonoBehaviour
     [SerializeField] private int capacity = 5;
     [SerializeField] private Transform fence;
     [SerializeField] private Transform spawnPoint;
+
+
 
 
     void Start()
@@ -25,8 +28,11 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        Movement();
-        ObjectAction();
+        if (canControl)
+        {
+            Movement();
+            ObjectAction();
+        }
     }
 
 
@@ -124,5 +130,9 @@ public class Player : MonoBehaviour
         return nearestDistance;
     }
 
+    public void BlockControl()
+    {
+        canControl = false;
+    }
 
 }

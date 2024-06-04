@@ -6,7 +6,7 @@ public class EnemyScript : MonoBehaviour
 {
 
     private Vector3 movePosition;
-    [SerializeField] private Player playerRef;
+    private Player playerRef;
     private bool stunned = false;
 
     [SerializeField] private float speed = 5f;
@@ -18,6 +18,11 @@ public class EnemyScript : MonoBehaviour
     {
         movePosition = playerRef.transform.position;
 
+    }
+
+    private void Awake()
+    {
+        playerRef = RunManager.Instance.GetCurrentPlayer();
     }
 
     // Update is called once per frame
@@ -33,7 +38,7 @@ public class EnemyScript : MonoBehaviour
             {
                 stunTimer += Time.deltaTime;
             }
-            else
+            else if(TimerManager.Instance.IsRunning())
             {
                 stunned = false;
                 stunTimer = 0;
@@ -53,9 +58,15 @@ public class EnemyScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Obstacle")
+        if(other.gameObject.CompareTag("Obstacle"))
         {
             stunned = true;
+            Destroy(other.gameObject);
+        }
+        else if(other.gameObject.CompareTag("Player"))
+        {
+            stunned = true;
+            RunManager.Instance.StopRun();
             Destroy(other.gameObject);
         }
     }

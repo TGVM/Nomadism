@@ -221,6 +221,7 @@ GameObject:
   - component: {fileID: 8193992003094785076}
   - component: {fileID: -4120844700210609105}
   - component: {fileID: 6456014085475221598}
+  - component: {fileID: -1572419105846268206}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -237,7 +238,7 @@ Transform:
   m_GameObject: {fileID: 7973247314370154823}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.13, y: 0, z: -37.41}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -265,7 +266,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 2.5, y: 2.5, z: 2.5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &6456014085475221598
 Rigidbody:
@@ -294,6 +295,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 20
   m_CollisionDetection: 0
+--- !u!114 &-1572419105846268206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7973247314370154823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 635b5500fa11b2a4a941f106d758bd98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  stunTimerMax: 3
+  stunTimer: 0
 --- !u!1 &8082334036636269116
 GameObject:
   m_ObjectHideFlags: 0
