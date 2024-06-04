@@ -9,8 +9,8 @@ public class CameraMovement : MonoBehaviour
 
     void Update()
     {
-        float xAxisValue = Input.GetAxis("Horizontal") * Speed * -1;
-        float zAxisValue = Input.GetAxis("Vertical") * Speed * -1;
+        float xAxisValue = Input.GetAxis("Horizontal") * Speed * -0.5f;
+        float zAxisValue = Input.GetAxis("Vertical") * Speed * -0.5f;
 
         transform.position = new Vector3(transform.position.x + xAxisValue, transform.position.y, transform.position.z + zAxisValue);
     }

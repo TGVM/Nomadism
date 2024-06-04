@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,9 +7,18 @@ public class RunManager : MonoBehaviour
 {
     public static RunManager Instance { get; private set; }
 
+    public event EventHandler OnStateChanged;
+
+    private enum State
+    {
+        GamePlaying,
+        GameOver,
+    }
+
+    private State state;
     private Player currentPlayer;
     private EnemyScript currentEnemy;
-
+    [SerializeField] private float timerToSpawnEnemy = 0f;
 
     [SerializeField] private Player PlayerPrefab;
     [SerializeField] private EnemyScript EnemyPrefab;
@@ -19,16 +29,31 @@ public class RunManager : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         Instance = this;
         SpawnPlayer();
-        currentEnemy = Instantiate(EnemyPrefab, EnemyPosition);
+        state = State.GamePlaying;
     }
 
     // Update is called once per frame
     void Update()
     {
+        switch (state)
+        {
+            case State.GamePlaying:
+                if (timerToSpawnEnemy > 0f)
+                {
+                    timerToSpawnEnemy -= Time.deltaTime;
+                }
+                else
+                {
+                    if (currentEnemy == null) SpawnEnemy();
+                }
+                break;
+            case State.GameOver:
+                break;
+        }
         
     }
 
@@ -36,6 +61,8 @@ public class RunManager : MonoBehaviour
     {
         currentPlayer.BlockControl();
         TimerManager.Instance.StopRun();
+        state = State.GameOver;
+        OnStateChanged?.Invoke(this, EventArgs.Empty);
     }
 
     void SpawnPlayer()
@@ -46,12 +73,17 @@ public class RunManager : MonoBehaviour
 
     void SpawnEnemy()
     {
-
+        currentEnemy = Instantiate(EnemyPrefab, EnemyPosition);
     }
 
     public Player GetCurrentPlayer()
     {
         return currentPlayer;
+    }
+
+    public bool IsGameOver()
+    {
+        return state == State.GameOver;
     }
 
 }

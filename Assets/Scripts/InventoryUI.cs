@@ -13,10 +13,14 @@ public class InventoryUI : MonoBehaviour
 
     private void Awake()
     {
-        if(InventoryManager.Instance.HasPlayer())
+        if(InventoryManager.Instance != null)
         {
-            UpdateMaxItems();
+            if (InventoryManager.Instance.HasPlayer())
+            {
+                UpdateMaxItems();
+            }
         }
+        
     }
 
     private void Start()
