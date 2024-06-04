@@ -1,10 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Player : MonoBehaviour
 {
+    public static event EventHandler OnAnyObjectPicked;
+    public static event EventHandler OnAnyObjectPut;
+
+
     private Vector3 movePosition;
     private List<GameObject> allObjects;
     private bool canControl = true;
@@ -73,6 +79,8 @@ public class Player : MonoBehaviour
                     allObjects.Remove(target);
 
                     inventory++;
+
+                    OnAnyObjectPicked?.Invoke(this, EventArgs.Empty);
                 }
 
             }
@@ -88,6 +96,8 @@ public class Player : MonoBehaviour
                     //prefab.rotation = spawnRot;
 
                     inventory--;
+
+                    OnAnyObjectPut?.Invoke(this, EventArgs.Empty);
                 }
             }
         }
@@ -135,4 +145,13 @@ public class Player : MonoBehaviour
         canControl = false;
     }
 
+    public int GetCurrentItems()
+    {
+        return inventory;
+    }
+
+    public int GetMaxItems()
+    {
+        return capacity;
+    }
 }

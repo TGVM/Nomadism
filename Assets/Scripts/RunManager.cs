@@ -19,10 +19,10 @@ public class RunManager : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         Instance = this;
-        currentPlayer = Instantiate(PlayerPrefab, PlayerPosition);
+        SpawnPlayer();
         currentEnemy = Instantiate(EnemyPrefab, EnemyPosition);
     }
 
@@ -40,6 +40,7 @@ public class RunManager : MonoBehaviour
 
     void SpawnPlayer()
     {
+        currentPlayer = Instantiate(PlayerPrefab, PlayerPosition);
 
     }
 
