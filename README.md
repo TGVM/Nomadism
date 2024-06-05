@@ -12,6 +12,9 @@ ToDo:
 
 - UI:
 > Menus: Initial, pause, upgrade<br>
+> Create: Pause menu<br>
+> Upgrade Menu - already created, but not functional yet<br>
+> Main Menu - configure option to continue previous saved game<br>
 
 - Others:
 > UI Icons<br>
