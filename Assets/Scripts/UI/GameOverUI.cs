@@ -2,13 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameOverUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI currencyText;
+    [SerializeField] private Button upgradeMenuButton;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
+    {
+        upgradeMenuButton.onClick.AddListener(() =>
+        {
+            Loader.Load(Loader.Scene.UpgradesScene);
+        });
+    }
+
+
+        // Start is called before the first frame update
+        void Start()
     {
         RunManager.Instance.OnStateChanged += Instance_OnStateChanged;
         Hide();
