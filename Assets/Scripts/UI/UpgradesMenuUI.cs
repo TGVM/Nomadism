@@ -60,7 +60,7 @@ public class UpgradesMenuUI : MonoBehaviour
 
         continueButton.onClick.AddListener(() =>
         {
-            Loader.Load(Loader.Scene.GameScene);
+            UpgradesManager.Instance.ContinueButton();
         });
         Time.timeScale = 1.0f;
     }
@@ -72,7 +72,7 @@ public class UpgradesMenuUI : MonoBehaviour
 
     private void VisualUpdate()
     {
-        currencyText.text = RunManager.Instance.GetLastCurrencyRecorded().ToString();
+        currencyText.text = UpgradesManager.Instance.GetCurrency().ToString();
     }
 
 }
