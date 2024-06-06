@@ -7,14 +7,12 @@ ToDo:
 
 - Gameplay:
 > Procedural generation of maps<br>
-> Upgrades and related new mechanics<br>
+> More upgrades and related new mechanics<br>
 > Minimap<br>
 
 - UI:
-> Menus: Initial, pause, upgrade<br>
-> Create: Pause menu<br>
-> Upgrade Menu - already created, but not functional yet<br>
-> Main Menu - configure option to continue previous saved game<br>
+> Menus: Initial, upgrade<br>
+> Upgrade Menu - already created, but not entirely functional yet<br>
 
 - Others:
 > UI Icons<br>
