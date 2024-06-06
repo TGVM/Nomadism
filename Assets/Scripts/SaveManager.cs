@@ -63,7 +63,7 @@ public class SaveManager : MonoBehaviour
         UpgradeModel extraLifes = new UpgradeModel();
         extraLifes.SetName("Extra Lifes");
         extraLifes.SetUpgradeCost(100);
-        extraLifes.SetCurrentLevel(1);
+        extraLifes.SetCurrentLevel(0);
         extraLifes.SetMaxLevel(5);
         upgradesList.Add(extraLifes);
 

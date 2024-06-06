@@ -17,22 +17,31 @@ public class RunManager : MonoBehaviour
 
     private State state;
     private Player currentPlayer;
-    private EnemyScript currentEnemy;
-    [SerializeField] private float timerToSpawnEnemy = 0f;
+    private List<EnemyScript> currentEnemy;
+    //[SerializeField] private float timerToSpawnEnemy = 0f;
 
     [SerializeField] private Player PlayerPrefab;
     [SerializeField] private EnemyScript EnemyPrefab;
     [SerializeField] private Transform PlayerPosition;
     [SerializeField] private Transform EnemyPosition;
 
+    private int numberOfEnemies;
+    private float timeBetweenSpawns;
+    private bool spawnReady = false;
+    private bool spawnMore = true;
 
     private int lastCurrencyRecorded;
 
-
+    //SaveFile
+    private SaveFile saveFile;
 
     // Start is called before the first frame update
     void Awake()
     {
+        currentEnemy = new List<EnemyScript>();
+        saveFile = SaveManager.Instance.LoadFromJson();
+        numberOfEnemies = saveFile.upgradesList[7].currentLevel;
+        timeBetweenSpawns = 0.5f;
         Instance = this;
         SpawnPlayer();
         state = State.GamePlaying;
@@ -44,14 +53,24 @@ public class RunManager : MonoBehaviour
         switch (state)
         {
             case State.GamePlaying:
-                if (timerToSpawnEnemy > 0f)
+                if (spawnMore)
                 {
-                    timerToSpawnEnemy -= Time.deltaTime;
+                    if (spawnReady)
+                    {
+                        
+                        SpawnEnemy();
+                        CheckAnotherEnemySpawn();
+                    }
+                    else if (timeBetweenSpawns > 0)
+                    {
+                        timeBetweenSpawns -= Time.deltaTime;
+                    }
+                    else if (timeBetweenSpawns <= 0)
+                    {
+                        spawnReady = true;
+                    }
                 }
-                else
-                {
-                    if (currentEnemy == null) SpawnEnemy();
-                }
+                
                 break;
             case State.GameOver:
                 break;
@@ -77,7 +96,18 @@ public class RunManager : MonoBehaviour
 
     void SpawnEnemy()
     {
-        currentEnemy = Instantiate(EnemyPrefab, EnemyPosition);
+        currentEnemy.Add(Instantiate(EnemyPrefab, EnemyPosition));
+        spawnReady = false;
+        spawnMore = false;
+    }
+
+    private void CheckAnotherEnemySpawn()
+    {
+        if(currentEnemy.Count < numberOfEnemies)
+        {
+            spawnMore = true;
+            timeBetweenSpawns = saveFile.upgradesList[4].currentLevel + 1;
+        }
     }
 
     public Player GetCurrentPlayer()

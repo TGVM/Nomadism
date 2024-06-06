@@ -10,8 +10,7 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] private Button continueButton;
     [SerializeField] private Button quitButton;
 
-    private bool isFirstUpdate = true;
-
+    
     private void Awake()
     {
         playButton.onClick.AddListener(() =>
@@ -36,8 +35,4 @@ public class MainMenuUI : MonoBehaviour
 
     }
 
-    private void Update()
-    {
-        
-    }
 }

@@ -6,7 +6,6 @@ using UnityEngine;
 public class InventoryUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI inventoryText;
-    private bool ready = false;
     private string currentItems = "0";
     private string maxItems = "";
 

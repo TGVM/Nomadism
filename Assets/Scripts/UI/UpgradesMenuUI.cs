@@ -53,7 +53,7 @@ public class UpgradesMenuUI : MonoBehaviour
         });
         enemySpawnDelayUpgradeButton.onClick.AddListener(() =>
         {
-
+            UpgradesManager.Instance.Upgrade("Enemy Spawn Delay");
         });
         newObjectsUpgradeButton.onClick.AddListener(() =>
         {
@@ -65,7 +65,7 @@ public class UpgradesMenuUI : MonoBehaviour
         });
         numberOfEnemiesUpgradeButton.onClick.AddListener(() =>
         {
-
+            UpgradesManager.Instance.Upgrade("Number of Enemies");
         });
 
         continueButton.onClick.AddListener(() =>
@@ -82,6 +82,9 @@ public class UpgradesMenuUI : MonoBehaviour
         UpdateRangeCostUI();
         UpdateCapacityCostUI();
         UpdateExtraLifesCostUI();
+        UpdateEnemyDelayCostUI();
+
+        UpdateNumberOfEnemiesCostUI();
     }
 
     private void VisualUpdate()
@@ -110,19 +113,14 @@ public class UpgradesMenuUI : MonoBehaviour
         UpgradeModel aux = UpgradesManager.Instance.FindUpgradeModelByName("Extra Lifes");
         extraLifesUpgradeText.text = aux.upgradeCost.ToString();
     }
+
+    private void UpdateEnemyDelayCostUI()
+    {
+        UpgradeModel aux = UpgradesManager.Instance.FindUpgradeModelByName("Enemy Spawn Delay");
+        enemySpawnDelayUpgradeText.text = aux.upgradeCost.ToString();
+    }
+
     /*
-
-    private void UpdateSpeedCostUI()
-    {
-        UpgradeModel aux = UpgradesManager.Instance.FindUpgradeModelByName("Speed");
-        speedUpgradeText.text = aux.upgradeCost.ToString();
-    }
-
-    private void UpdateSpeedCostUI()
-    {
-        UpgradeModel aux = UpgradesManager.Instance.FindUpgradeModelByName("Speed");
-        speedUpgradeText.text = aux.upgradeCost.ToString();
-    }
     private void UpdateSpeedCostUI()
     {
         UpgradeModel aux = UpgradesManager.Instance.FindUpgradeModelByName("Speed");
@@ -135,4 +133,9 @@ public class UpgradesMenuUI : MonoBehaviour
     }
 
     */
+    private void UpdateNumberOfEnemiesCostUI()
+    {
+        UpgradeModel aux = UpgradesManager.Instance.FindUpgradeModelByName("Number of Enemies");
+        numberOfEnemiesUpgradeText.text = aux.upgradeCost.ToString();
+    }
 }

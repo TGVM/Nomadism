@@ -9,13 +9,19 @@ public class EnemyScript : MonoBehaviour
     private Player playerRef;
     private bool stunned = false;
 
+    private float startDelay;
     [SerializeField] private float speed = 5f;
     [SerializeField] private float stunTimerMax = 3f;
     [SerializeField] private float stunTimer = 0f;
 
+    //SaveFile
+    private SaveFile saveFile;
+
     // Start is called before the first frame update
     void Start()
     {
+        saveFile = SaveManager.Instance.LoadFromJson();
+        startDelay = saveFile.upgradesList[4].currentLevel;
         movePosition = playerRef.transform.position;
 
     }
@@ -28,6 +34,11 @@ public class EnemyScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(startDelay > 0)
+        {
+            startDelay -= Time.deltaTime;
+            return;
+        }
         if(!stunned)
         {
             Movement();
