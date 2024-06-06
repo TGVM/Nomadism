@@ -21,6 +21,7 @@ public class SaveManager : MonoBehaviour
         string data = JsonUtility.ToJson(newSave);
         string filePath = Application.persistentDataPath + "/SaveFile.Json";
         System.IO.File.WriteAllText(filePath, data);
+        Debug.Log(filePath);
     }
 
     public SaveFile LoadFromJson()
@@ -106,15 +107,15 @@ public class SaveManager : MonoBehaviour
 public class  SaveFile
 {
     public int currency;
-    public List<UpgradeModel> upgradesList;
+    public List<UpgradeModel> upgradesList = new List<UpgradeModel>();
 }
 
 [System.Serializable]
 public class UpgradeModel {
-    string name;
-    int upgradeCost;
-    int currentLevel;
-    int maxLevel;
+    public string name;
+    public int upgradeCost;
+    public int currentLevel;
+    public int maxLevel;
 
     public void SetName(string name)
     {
