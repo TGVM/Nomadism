@@ -26,6 +26,8 @@ public class RunManager : MonoBehaviour
     [SerializeField] private Transform EnemyPosition;
 
 
+    private int lastCurrencyRecorded;
+
 
 
     // Start is called before the first frame update
@@ -61,6 +63,8 @@ public class RunManager : MonoBehaviour
     {
         currentPlayer.BlockControl();
         TimerManager.Instance.StopRun();
+        lastCurrencyRecorded = (int)TimerManager.Instance.GetCurrentRunTimer();
+        TimerManager.Instance.ResetClock();
         state = State.GameOver;
         OnStateChanged?.Invoke(this, EventArgs.Empty);
     }
@@ -84,6 +88,11 @@ public class RunManager : MonoBehaviour
     public bool IsGameOver()
     {
         return state == State.GameOver;
+    }
+
+    public int GetLastCurrencyRecorded()
+    {
+        return lastCurrencyRecorded;
     }
 
 }

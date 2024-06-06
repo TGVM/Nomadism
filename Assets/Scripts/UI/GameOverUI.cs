@@ -20,7 +20,7 @@ public class GameOverUI : MonoBehaviour
 
 
         // Start is called before the first frame update
-        void Start()
+    void Start()
     {
         RunManager.Instance.OnStateChanged += Instance_OnStateChanged;
         Hide();
@@ -30,7 +30,12 @@ public class GameOverUI : MonoBehaviour
     {
         if (RunManager.Instance.IsGameOver())
         {
-            currencyText.text = ((int)TimerManager.Instance.GetCurrentRunTimer()).ToString();
+            int runCurrency = RunManager.Instance.GetLastCurrencyRecorded();
+            currencyText.text = runCurrency.ToString();
+            if(UpgradesManager.Instance != null)
+            {
+                UpgradesManager.Instance.UpdateCurrencyWhenGameOver(runCurrency);
+            }
             Show();
         }
     }

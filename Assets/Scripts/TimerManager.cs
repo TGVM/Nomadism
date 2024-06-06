@@ -39,4 +39,9 @@ public class TimerManager : MonoBehaviour
         return running;
     }
 
+    public void ResetClock()
+    {
+        currentRunTimer = 0f;
+    }
+
 }
