@@ -20,6 +20,15 @@ public class UpgradesMenuUI : MonoBehaviour
     [SerializeField] private Button miniMapUpgradeButton;
     [SerializeField] private Button numberOfEnemiesUpgradeButton;
 
+    [SerializeField] private TextMeshProUGUI speedUpgradeText;
+    [SerializeField] private TextMeshProUGUI rangeUpgradeText;
+    [SerializeField] private TextMeshProUGUI capacityUpgradeText;
+    [SerializeField] private TextMeshProUGUI extraLifesUpgradeText;
+    [SerializeField] private TextMeshProUGUI enemySpawnDelayUpgradeText;
+    [SerializeField] private TextMeshProUGUI newObjectsUpgradeText;
+    [SerializeField] private TextMeshProUGUI miniMapUpgradeText;
+    [SerializeField] private TextMeshProUGUI numberOfEnemiesUpgradeText;
+
     [SerializeField] private Button continueButton;
 
 
@@ -27,19 +36,20 @@ public class UpgradesMenuUI : MonoBehaviour
     {
         speedUpgradeButton.onClick.AddListener(() =>
         {
-            
+            UpgradesManager.Instance.Upgrade("Speed");
         });
         rangeUpgradeButton.onClick.AddListener(() =>
         {
+            UpgradesManager.Instance.Upgrade("Range");
 
         }); 
         capacityUpgradeButton.onClick.AddListener(() =>
         {
-
+            UpgradesManager.Instance.Upgrade("Capacity");
         });
         extraLifesUpgradeButton.onClick.AddListener(() =>
         {
-
+            UpgradesManager.Instance.Upgrade("Extra Lifes");
         });
         enemySpawnDelayUpgradeButton.onClick.AddListener(() =>
         {
@@ -68,6 +78,10 @@ public class UpgradesMenuUI : MonoBehaviour
     void Update()
     {
         VisualUpdate();
+        UpdateSpeedCostUI();
+        UpdateRangeCostUI();
+        UpdateCapacityCostUI();
+        UpdateExtraLifesCostUI();
     }
 
     private void VisualUpdate()
@@ -75,4 +89,50 @@ public class UpgradesMenuUI : MonoBehaviour
         currencyText.text = UpgradesManager.Instance.GetCurrency().ToString();
     }
 
+    private void UpdateSpeedCostUI()
+    {
+        UpgradeModel aux = UpgradesManager.Instance.FindUpgradeModelByName("Speed");
+        speedUpgradeText.text = aux.upgradeCost.ToString();
+    }
+
+    private void UpdateRangeCostUI()
+    {
+        UpgradeModel aux = UpgradesManager.Instance.FindUpgradeModelByName("Range");
+        rangeUpgradeText.text = aux.upgradeCost.ToString();
+    }
+    private void UpdateCapacityCostUI()
+    {
+        UpgradeModel aux = UpgradesManager.Instance.FindUpgradeModelByName("Capacity");
+        capacityUpgradeText.text = aux.upgradeCost.ToString();
+    }
+    private void UpdateExtraLifesCostUI()
+    {
+        UpgradeModel aux = UpgradesManager.Instance.FindUpgradeModelByName("Extra Lifes");
+        extraLifesUpgradeText.text = aux.upgradeCost.ToString();
+    }
+    /*
+
+    private void UpdateSpeedCostUI()
+    {
+        UpgradeModel aux = UpgradesManager.Instance.FindUpgradeModelByName("Speed");
+        speedUpgradeText.text = aux.upgradeCost.ToString();
+    }
+
+    private void UpdateSpeedCostUI()
+    {
+        UpgradeModel aux = UpgradesManager.Instance.FindUpgradeModelByName("Speed");
+        speedUpgradeText.text = aux.upgradeCost.ToString();
+    }
+    private void UpdateSpeedCostUI()
+    {
+        UpgradeModel aux = UpgradesManager.Instance.FindUpgradeModelByName("Speed");
+        speedUpgradeText.text = aux.upgradeCost.ToString();
+    }
+    private void UpdateSpeedCostUI()
+    {
+        UpgradeModel aux = UpgradesManager.Instance.FindUpgradeModelByName("Speed");
+        speedUpgradeText.text = aux.upgradeCost.ToString();
+    }
+
+    */
 }

@@ -25,13 +25,13 @@ public class UpgradesManager : MonoBehaviour
 
     
     public void Upgrade(string upgradeName) {
-    //check in list of upgradeModel for a matching name and upgrade it
         UpgradeModel upgrade = FindUpgradeModelByName(upgradeName);
         if(isUpgradeValid(currency, upgrade))
         {
             currency -= upgrade.GetUpgradeCost();
             int newCost = (int)(upgrade.GetUpgradeCost() * 1.4f);
             upgrade.SetUpgradeCost(newCost);
+            upgrade.SetCurrentLevel(upgrade.GetCurrentLevel() + 1);
         }
     }
 

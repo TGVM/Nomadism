@@ -7,29 +7,44 @@ using UnityEngine.EventSystems;
 
 public class Player : MonoBehaviour
 {
+    //Events
     public static event EventHandler OnAnyObjectPicked;
     public static event EventHandler OnAnyObjectPut;
 
+    //Constants
+    private float INITIAL_SPEED = 5f;
+    private float INITIAL_RANGE = 10f;
+    private int INITIAL_CAPACITY = 5;
+    private int INITIAL_EXTRA_LIFES = 0;
 
+    //Non-Serializable privates
     private Vector3 movePosition;
     private List<GameObject> allObjects;
     private bool canControl = true;
 
-    [SerializeField] private float speed = 5f;
-    [SerializeField] private float range = 10f;
+    //Serializable privates
+    [SerializeField] private float speed;
+    [SerializeField] private float range;
     [SerializeField] private int inventory = 0;
-    [SerializeField] private int capacity = 5;
+    [SerializeField] private int capacity;
+    [SerializeField] private int extraLifes;
     [SerializeField] private Transform fence;
     [SerializeField] private Transform spawnPoint;
 
-
+    //SaveFile
+    private SaveFile saveFile;
 
 
     void Start()
     {
+        saveFile = SaveManager.Instance.LoadFromJson();
         movePosition = transform.position;
         allObjects = GameObject.FindGameObjectsWithTag("Collectable").ToList();
-        
+
+        speed = INITIAL_SPEED + saveFile.upgradesList[0].currentLevel;
+        range = INITIAL_RANGE + saveFile.upgradesList[1].currentLevel * 10;
+        capacity = INITIAL_CAPACITY + saveFile.upgradesList[2].currentLevel;
+        extraLifes = INITIAL_EXTRA_LIFES + saveFile.upgradesList[3].currentLevel;
     }
 
     void Update()
@@ -153,5 +168,15 @@ public class Player : MonoBehaviour
     public int GetMaxItems()
     {
         return capacity;
+    }
+
+    public void RemoveExtraLife()
+    {
+        extraLifes -= 1;
+    }
+
+    public bool HasExtraLife()
+    {
+        return extraLifes > 0;
     }
 }

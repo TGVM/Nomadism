@@ -66,8 +66,15 @@ public class EnemyScript : MonoBehaviour
         else if(other.gameObject.CompareTag("Player"))
         {
             stunned = true;
-            RunManager.Instance.StopRun();
-            Destroy(other.gameObject);
+            if (playerRef.HasExtraLife())
+            {
+                playerRef.RemoveExtraLife();
+            }
+            else
+            {
+                RunManager.Instance.StopRun();
+                Destroy(other.gameObject);
+            }
         }
     }
 
