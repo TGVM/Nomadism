@@ -61,7 +61,7 @@ public class UpgradesMenuUI : MonoBehaviour
         });
         miniMapUpgradeButton.onClick.AddListener(() =>
         {
-
+            UpgradesManager.Instance.Upgrade("Minimap");
         });
         numberOfEnemiesUpgradeButton.onClick.AddListener(() =>
         {
@@ -84,6 +84,7 @@ public class UpgradesMenuUI : MonoBehaviour
         UpdateExtraLifesCostUI();
         UpdateEnemyDelayCostUI();
 
+        UpdateMinimapCostUI();
         UpdateNumberOfEnemiesCostUI();
     }
 
@@ -126,13 +127,13 @@ public class UpgradesMenuUI : MonoBehaviour
         UpgradeModel aux = UpgradesManager.Instance.FindUpgradeModelByName("Speed");
         speedUpgradeText.text = aux.upgradeCost.ToString();
     }
-    private void UpdateSpeedCostUI()
+    */
+    private void UpdateMinimapCostUI()
     {
-        UpgradeModel aux = UpgradesManager.Instance.FindUpgradeModelByName("Speed");
-        speedUpgradeText.text = aux.upgradeCost.ToString();
+        UpgradeModel aux = UpgradesManager.Instance.FindUpgradeModelByName("Minimap");
+        miniMapUpgradeText.text = aux.upgradeCost.ToString();
     }
 
-    */
     private void UpdateNumberOfEnemiesCostUI()
     {
         UpgradeModel aux = UpgradesManager.Instance.FindUpgradeModelByName("Number of Enemies");
