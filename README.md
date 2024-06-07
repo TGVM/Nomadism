@@ -8,7 +8,6 @@ ToDo:
 - Gameplay:
 > Procedural generation of maps<br>
 > More upgrades and related new mechanics<br>
-> Minimap<br>
 > Inventory Refactoring to allow new objects<br>
 > Upgrades to increase dificulty that increase currency multiplier<br>
 > Final upgrade to fight with a final boss<br>
