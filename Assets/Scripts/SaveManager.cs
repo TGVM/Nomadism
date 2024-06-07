@@ -38,12 +38,14 @@ public class SaveManager : MonoBehaviour
         List<UpgradeModel> upgradesList = new List<UpgradeModel>();
 
         int currency = 0;
+        float currencyMultiplier = 1f;
 
         UpgradeModel speed = new UpgradeModel();
         speed.SetName("Speed");
         speed.SetUpgradeCost(5);
         speed.SetCurrentLevel(1);
         speed.SetMaxLevel(5);
+        speed.SetAddedMultiplier(-0.1f);
         upgradesList.Add(speed);
 
         UpgradeModel range = new UpgradeModel();
@@ -51,6 +53,7 @@ public class SaveManager : MonoBehaviour
         range.SetUpgradeCost(5);
         range.SetCurrentLevel(1);
         range.SetMaxLevel(5);
+        range.SetAddedMultiplier(-0.1f);
         upgradesList.Add(range);
 
         UpgradeModel capacity = new UpgradeModel();
@@ -58,6 +61,7 @@ public class SaveManager : MonoBehaviour
         capacity.SetUpgradeCost(10);
         capacity.SetCurrentLevel(1);
         capacity.SetMaxLevel(5);
+        capacity.SetAddedMultiplier(-0.1f);
         upgradesList.Add(capacity);
 
         UpgradeModel extraLifes = new UpgradeModel();
@@ -65,6 +69,7 @@ public class SaveManager : MonoBehaviour
         extraLifes.SetUpgradeCost(100);
         extraLifes.SetCurrentLevel(0);
         extraLifes.SetMaxLevel(5);
+        extraLifes.SetAddedMultiplier(-0.2f);
         upgradesList.Add(extraLifes);
 
         UpgradeModel enemySpawnDelay = new UpgradeModel();
@@ -72,6 +77,7 @@ public class SaveManager : MonoBehaviour
         enemySpawnDelay.SetUpgradeCost(10);
         enemySpawnDelay.SetCurrentLevel(1);
         enemySpawnDelay.SetMaxLevel(5);
+        enemySpawnDelay.SetAddedMultiplier(-0.15f);
         upgradesList.Add(enemySpawnDelay);
 
         UpgradeModel newObjects = new UpgradeModel();
@@ -79,6 +85,7 @@ public class SaveManager : MonoBehaviour
         newObjects.SetUpgradeCost(100);
         newObjects.SetCurrentLevel(1);
         newObjects.SetMaxLevel(3);
+        newObjects.SetAddedMultiplier(-0.15f);
         upgradesList.Add(newObjects);
 
         UpgradeModel miniMap = new UpgradeModel();
@@ -86,6 +93,7 @@ public class SaveManager : MonoBehaviour
         miniMap.SetUpgradeCost(100);
         miniMap.SetCurrentLevel(0);
         miniMap.SetMaxLevel(3);
+        miniMap.SetAddedMultiplier(-0.15f);
         upgradesList.Add(miniMap);
 
         UpgradeModel numberOfEnemies = new UpgradeModel();
@@ -93,10 +101,12 @@ public class SaveManager : MonoBehaviour
         numberOfEnemies.SetUpgradeCost(500);
         numberOfEnemies.SetCurrentLevel(1);
         numberOfEnemies.SetMaxLevel(3);
+        numberOfEnemies.SetAddedMultiplier(1f);
         upgradesList.Add(numberOfEnemies);
         
         saveFile = new SaveFile();
         saveFile.currency = currency;
+        saveFile.currencyMultiplier = currencyMultiplier;
         saveFile.upgradesList = upgradesList;
         SaveToJson(saveFile);
     }
@@ -107,6 +117,7 @@ public class SaveManager : MonoBehaviour
 public class  SaveFile
 {
     public int currency;
+    public float currencyMultiplier;
     public List<UpgradeModel> upgradesList = new List<UpgradeModel>();
 }
 
@@ -116,6 +127,7 @@ public class UpgradeModel {
     public int upgradeCost;
     public int currentLevel;
     public int maxLevel;
+    public float addedMultiplier;
 
     public void SetName(string name)
     {
@@ -133,6 +145,10 @@ public class UpgradeModel {
     {
         this.maxLevel = ml;
     }
+    public void SetAddedMultiplier(float am)
+    {
+        this.addedMultiplier = am;
+    }
     public string GetName()
     {
         return name;
@@ -148,5 +164,9 @@ public class UpgradeModel {
     public int GetMaxLevel()
     {
         return maxLevel;
+    }
+    public float GetAddedMultiplier()
+    {
+        return addedMultiplier;
     }
 }
