@@ -55,6 +55,7 @@ MonoBehaviour:
   capacity: 5
   extraLifes: 0
   fence: {fileID: 444295200223787962, guid: 3ead2533860b8ce418482122aae34b63, type: 3}
+  spikes: {fileID: 2601386535348990847, guid: 85d49ea089f1bc448a33d30573b12c04, type: 3}
   spawnPoint: {fileID: 54972133702525643}
 --- !u!54 &5772265841061816031
 Rigidbody:

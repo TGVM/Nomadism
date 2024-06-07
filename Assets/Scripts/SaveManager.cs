@@ -43,7 +43,7 @@ public class SaveManager : MonoBehaviour
         UpgradeModel speed = new UpgradeModel();
         speed.SetName("Speed");
         speed.SetUpgradeCost(5);
-        speed.SetCurrentLevel(1);
+        speed.SetCurrentLevel(0);
         speed.SetMaxLevel(5);
         speed.SetAddedMultiplier(-0.1f);
         upgradesList.Add(speed);
@@ -51,7 +51,7 @@ public class SaveManager : MonoBehaviour
         UpgradeModel range = new UpgradeModel();
         range.SetName("Range");
         range.SetUpgradeCost(5);
-        range.SetCurrentLevel(1);
+        range.SetCurrentLevel(0);
         range.SetMaxLevel(5);
         range.SetAddedMultiplier(-0.1f);
         upgradesList.Add(range);
@@ -59,7 +59,7 @@ public class SaveManager : MonoBehaviour
         UpgradeModel capacity = new UpgradeModel();
         capacity.SetName("Capacity");
         capacity.SetUpgradeCost(10);
-        capacity.SetCurrentLevel(1);
+        capacity.SetCurrentLevel(0);
         capacity.SetMaxLevel(5);
         capacity.SetAddedMultiplier(-0.1f);
         upgradesList.Add(capacity);

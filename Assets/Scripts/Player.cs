@@ -29,6 +29,8 @@ public class Player : MonoBehaviour
     [SerializeField] private int capacity;
     [SerializeField] private int extraLifes;
     [SerializeField] private Transform fence;
+    [SerializeField] private Transform spikes;
+
     [SerializeField] private Transform spawnPoint;
 
     //SaveFile
@@ -90,8 +92,11 @@ public class Player : MonoBehaviour
                 if (inventory < capacity)
                 {
                     GameObject target = GetNearestObject();
+                    SpawnedObject so = target.GetComponent<SpawnedObject>();
+                    InventoryManager.Instance.FillInventory(so);
                     target.SetActive(false);
                     allObjects.Remove(target);
+
 
                     inventory++;
 
@@ -106,9 +111,20 @@ public class Player : MonoBehaviour
                     Transform prefab;
                     Vector3 spawnPos = spawnPoint.transform.position;
                     Quaternion spawnRot = transform.rotation * Quaternion.Euler(new Vector3(0, 90, 0));
-                    //spawnRot = spawnRot * (0, 90, 0);
-                    prefab = Instantiate(fence, spawnPos, spawnRot );
-                    //prefab.rotation = spawnRot;
+
+                    string trapType = InventoryManager.Instance.decideTrap();
+                    
+                    if(trapType == "stone")
+                    {
+                        prefab = Instantiate(spikes, spawnPos, spawnRot);
+
+                    }
+                    else if(trapType == "wood")
+                    {
+                        prefab = Instantiate(fence, spawnPos, spawnRot);
+
+                    }
+
 
                     inventory--;
 

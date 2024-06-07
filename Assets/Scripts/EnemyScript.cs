@@ -71,7 +71,9 @@ public class EnemyScript : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Obstacle"))
         {
+            float stunTimer = other.GetComponent<SpawnedObject>().getStunTime();
             stunned = true;
+            stunTimerMax = stunTimer;
             Destroy(other.gameObject);
         }
         else if(other.gameObject.CompareTag("Player"))
