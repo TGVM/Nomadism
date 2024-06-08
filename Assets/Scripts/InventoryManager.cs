@@ -36,7 +36,7 @@ public class InventoryManager : MonoBehaviour
     {
         return maxItems;
     }
-
+    
     public void FillInventory(SpawnedObject targetObject)
     {
         if (string.Compare(targetObject.getName(), "wood") == 0) { 
