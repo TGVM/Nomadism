@@ -110,6 +110,7 @@ public class Player : MonoBehaviour
                 {
                     Transform prefab;
                     Vector3 spawnPos = spawnPoint.transform.position;
+                    spawnPos.y = 0;
                     Quaternion spawnRot = transform.rotation * Quaternion.Euler(new Vector3(0, 90, 0));
 
                     string trapType = InventoryManager.Instance.decideTrap();
