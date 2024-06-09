@@ -14,6 +14,7 @@ ToDo:
 - UI:
 > Menus: Upgrade<br>
 > Upgrade Menu - already created, but not entirely functional yet<br>
+> Upgrades to implement: objects, number of objects spawned, enemy speed <br>
 
 - Others:
 > UI Icons<br>
