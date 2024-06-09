@@ -97,38 +97,33 @@ public class UpgradesMenuUI : MonoBehaviour
     {
         UpgradeModel aux = UpgradesManager.Instance.FindUpgradeModelByName("Speed");
         string description = "Increases player speed";
-        string levelProgress = aux.GetCurrentLevel().ToString() + "/" + aux.GetMaxLevel().ToString();
-        speedUpgradeText.text = aux.upgradeCost.ToString()+" "+description+" "+levelProgress;
+        speedUpgradeText.text = GetFullDescription(aux, description);
     }
 
     private void UpdateRangeCostUI()
     {
         UpgradeModel aux = UpgradesManager.Instance.FindUpgradeModelByName("Range");
         string description = "Increases player range";
-        string levelProgress = aux.GetCurrentLevel().ToString() + "/" + aux.GetMaxLevel().ToString();
-        rangeUpgradeText.text = aux.upgradeCost.ToString() + " " + description + " " + levelProgress;
+        rangeUpgradeText.text = GetFullDescription(aux, description);
     }
     private void UpdateCapacityCostUI()
     {
         UpgradeModel aux = UpgradesManager.Instance.FindUpgradeModelByName("Capacity");
         string description = "Increases player inventory capacity";
-        string levelProgress = aux.GetCurrentLevel().ToString() + "/" + aux.GetMaxLevel().ToString();
-        capacityUpgradeText.text = aux.upgradeCost.ToString() + " " + description + " " + levelProgress;
+        capacityUpgradeText.text = GetFullDescription(aux, description);
     }
     private void UpdateExtraLifesCostUI()
     {
         UpgradeModel aux = UpgradesManager.Instance.FindUpgradeModelByName("Extra Lifes");
         string description = "Increases player extra lifes";
-        string levelProgress = aux.GetCurrentLevel().ToString() + "/" + aux.GetMaxLevel().ToString();
-        extraLifesUpgradeText.text = aux.upgradeCost.ToString() + " " + description + " " + levelProgress;
+        extraLifesUpgradeText.text = GetFullDescription(aux, description);
     }
 
     private void UpdateEnemyDelayCostUI()
     {
         UpgradeModel aux = UpgradesManager.Instance.FindUpgradeModelByName("Enemy Spawn Delay");
         string description = "Increases delay before spawning enemy";
-        string levelProgress = aux.GetCurrentLevel().ToString() + "/" + aux.GetMaxLevel().ToString();
-        enemySpawnDelayUpgradeText.text = aux.upgradeCost.ToString() + " " + description + " " + levelProgress;
+        enemySpawnDelayUpgradeText.text = GetFullDescription(aux, description);
     }
 
     /*
@@ -136,8 +131,7 @@ public class UpgradesMenuUI : MonoBehaviour
     {
         UpgradeModel aux = UpgradesManager.Instance.FindUpgradeModelByName("Speed");
         string description = "Increases delay before spawning enemy";
-        string levelProgress = aux.GetCurrentLevel().ToString() + "/" + aux.GetMaxLevel().ToString();
-        enemySpawnDelayUpgradeText.text = aux.upgradeCost.ToString() + " " + description + " " + levelProgress;
+        enemySpawnDelayUpgradeText.text = GetFullDescription(aux, description);
     }
     */
     private void UpdateMinimapCostUI()
@@ -148,15 +142,21 @@ public class UpgradesMenuUI : MonoBehaviour
         {
             description = "Unlocks minimap";
         }
-        string levelProgress = aux.GetCurrentLevel().ToString() + "/" + aux.GetMaxLevel().ToString();
-        miniMapUpgradeText.text = aux.upgradeCost.ToString() + " " + description + " " + levelProgress;
+        miniMapUpgradeText.text = GetFullDescription(aux, description);
     }
 
     private void UpdateNumberOfEnemiesCostUI()
     {
         UpgradeModel aux = UpgradesManager.Instance.FindUpgradeModelByName("Number of Enemies");
         string description = "Increases number of enemies";
-        string levelProgress = aux.GetCurrentLevel().ToString() + "/" + aux.GetMaxLevel().ToString();
-        numberOfEnemiesUpgradeText.text = aux.upgradeCost.ToString() + " " + description + " " + levelProgress;
+
+        numberOfEnemiesUpgradeText.text = GetFullDescription(aux, description);
     }
+
+    private string GetFullDescription(UpgradeModel aux, string description)
+    {
+        string levelProgress = aux.GetCurrentLevel().ToString() + "/" + aux.GetMaxLevel().ToString();
+        return aux.upgradeCost.ToString() + " " + description + " " + levelProgress;
+    }
+
 }

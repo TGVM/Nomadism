@@ -83,7 +83,7 @@ public class SaveManager : MonoBehaviour
         UpgradeModel newObjects = new UpgradeModel();
         newObjects.SetName("New Objects");
         newObjects.SetUpgradeCost(100);
-        newObjects.SetCurrentLevel(1);
+        newObjects.SetCurrentLevel(3);
         newObjects.SetMaxLevel(3);
         newObjects.SetAddedMultiplier(-0.15f);
         upgradesList.Add(newObjects);
@@ -91,7 +91,7 @@ public class SaveManager : MonoBehaviour
         UpgradeModel miniMap = new UpgradeModel();
         miniMap.SetName("Minimap");
         miniMap.SetUpgradeCost(100);
-        miniMap.SetCurrentLevel(0);
+        miniMap.SetCurrentLevel(2);
         miniMap.SetMaxLevel(3);
         miniMap.SetAddedMultiplier(-0.15f);
         upgradesList.Add(miniMap);

@@ -41,7 +41,9 @@ public class Player : MonoBehaviour
     {
         saveFile = SaveManager.Instance.LoadFromJson();
         movePosition = transform.position;
-        allObjects = GameObject.FindGameObjectsWithTag("Collectable").ToList();
+        //allObjects = GameObject.FindGameObjectsWithTag("Collectable").ToList();
+
+        allObjects = ObjectsGenerator.Instance.GetAllObjectsList();
 
         speed = INITIAL_SPEED + saveFile.upgradesList[0].currentLevel;
         range = INITIAL_RANGE + saveFile.upgradesList[1].currentLevel * 10;
