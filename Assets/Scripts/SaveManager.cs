@@ -67,7 +67,7 @@ public class SaveManager : MonoBehaviour
         UpgradeModel extraLifes = new UpgradeModel();
         extraLifes.SetName("Extra Lifes");
         extraLifes.SetUpgradeCost(100);
-        extraLifes.SetCurrentLevel(0);
+        extraLifes.SetCurrentLevel(1);
         extraLifes.SetMaxLevel(5);
         extraLifes.SetAddedMultiplier(-0.2f);
         upgradesList.Add(extraLifes);
@@ -75,7 +75,7 @@ public class SaveManager : MonoBehaviour
         UpgradeModel enemySpawnDelay = new UpgradeModel();
         enemySpawnDelay.SetName("Enemy Spawn Delay");
         enemySpawnDelay.SetUpgradeCost(10);
-        enemySpawnDelay.SetCurrentLevel(1);
+        enemySpawnDelay.SetCurrentLevel(3);
         enemySpawnDelay.SetMaxLevel(5);
         enemySpawnDelay.SetAddedMultiplier(-0.15f);
         upgradesList.Add(enemySpawnDelay);
@@ -91,7 +91,7 @@ public class SaveManager : MonoBehaviour
         UpgradeModel miniMap = new UpgradeModel();
         miniMap.SetName("Minimap");
         miniMap.SetUpgradeCost(100);
-        miniMap.SetCurrentLevel(2);
+        miniMap.SetCurrentLevel(3);
         miniMap.SetMaxLevel(3);
         miniMap.SetAddedMultiplier(-0.15f);
         upgradesList.Add(miniMap);
@@ -99,7 +99,7 @@ public class SaveManager : MonoBehaviour
         UpgradeModel numberOfEnemies = new UpgradeModel();
         numberOfEnemies.SetName("Number of Enemies");
         numberOfEnemies.SetUpgradeCost(500);
-        numberOfEnemies.SetCurrentLevel(1);
+        numberOfEnemies.SetCurrentLevel(3);
         numberOfEnemies.SetMaxLevel(3);
         numberOfEnemies.SetAddedMultiplier(1f);
         upgradesList.Add(numberOfEnemies);

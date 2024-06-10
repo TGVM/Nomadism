@@ -26,6 +26,8 @@ public class RunManager : MonoBehaviour
     [SerializeField] private Transform EnemyPosition;
 
     private int numberOfEnemies;
+    private int numberOfEnemiesSpawned;
+
     private float timeBetweenSpawns;
     private bool spawnReady = false;
     private bool spawnMore = true;
@@ -40,7 +42,8 @@ public class RunManager : MonoBehaviour
     {
         currentEnemy = new List<EnemyScript>();
         saveFile = SaveManager.Instance.LoadFromJson();
-        numberOfEnemies = saveFile.upgradesList[7].currentLevel;
+        numberOfEnemies = saveFile.upgradesList[7].currentLevel + 1;
+        numberOfEnemiesSpawned = 0;
         timeBetweenSpawns = 0.5f;
         Instance = this;
         SpawnPlayer();
@@ -96,7 +99,20 @@ public class RunManager : MonoBehaviour
 
     void SpawnEnemy()
     {
-        currentEnemy.Add(Instantiate(EnemyPrefab, EnemyPosition));
+        Vector3 aux = EnemyPosition.position;
+        if (numberOfEnemiesSpawned%2==0)
+        {
+            aux.x *= -1;
+            EnemyPosition.position = aux;
+        }
+        else
+        {
+            aux.z *= -1;
+            EnemyPosition.position = aux;
+        }
+        currentEnemy.Add(Instantiate(EnemyPrefab, aux, Quaternion.identity));
+        numberOfEnemiesSpawned += 1;
+
         spawnReady = false;
         spawnMore = false;
     }

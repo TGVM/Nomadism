@@ -60,10 +60,10 @@ public class UpgradesManager : MonoBehaviour
 
     void UpdateCurrencyMultiplier(UpgradeModel upgrade)
     {
-        //if(currencyMultiplier - upgrade.GetAddedMultiplier() > 0)
-        //{
+        if(currencyMultiplier - upgrade.GetAddedMultiplier() > 0)
+        {
             currencyMultiplier += upgrade.GetAddedMultiplier();
-        //}
+        }
     }
 
 

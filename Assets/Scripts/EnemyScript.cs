@@ -41,7 +41,10 @@ public class EnemyScript : MonoBehaviour
         }
         if(!stunned)
         {
-            Movement();
+            if(playerRef != null)
+            {
+                Movement();
+            }
         }
         else
         {

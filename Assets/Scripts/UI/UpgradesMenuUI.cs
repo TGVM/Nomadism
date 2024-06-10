@@ -9,6 +9,8 @@ public class UpgradesMenuUI : MonoBehaviour
 {
 
     [SerializeField] private TextMeshProUGUI currencyText;
+    [SerializeField] private TextMeshProUGUI MultiplierLabelText;
+    [SerializeField] private TextMeshProUGUI MultiplierValueText;
 
 
     [SerializeField] private Button speedUpgradeButton;
@@ -57,7 +59,7 @@ public class UpgradesMenuUI : MonoBehaviour
         });
         newObjectsUpgradeButton.onClick.AddListener(() =>
         {
-
+            UpgradesManager.Instance.Upgrade("New Objects");
         });
         miniMapUpgradeButton.onClick.AddListener(() =>
         {
@@ -83,7 +85,7 @@ public class UpgradesMenuUI : MonoBehaviour
         UpdateCapacityCostUI();
         UpdateExtraLifesCostUI();
         UpdateEnemyDelayCostUI();
-
+        UpdateNewObjectsCostUI();
         UpdateMinimapCostUI();
         UpdateNumberOfEnemiesCostUI();
     }
@@ -91,6 +93,18 @@ public class UpgradesMenuUI : MonoBehaviour
     private void VisualUpdate()
     {
         currencyText.text = UpgradesManager.Instance.GetCurrency().ToString();
+        float multiplier = UpgradesManager.Instance.GetCurrencyMultiplier();
+        MultiplierValueText.text = multiplier.ToString("F2");
+        if(multiplier < 1)
+        {
+            MultiplierLabelText.color = Color.red;
+            MultiplierValueText.color = Color.red;
+        }
+        else
+        {
+            MultiplierLabelText.color = Color.green;
+            MultiplierValueText.color = Color.green;
+        }
     }
 
     private void UpdateSpeedCostUI()
@@ -126,14 +140,17 @@ public class UpgradesMenuUI : MonoBehaviour
         enemySpawnDelayUpgradeText.text = GetFullDescription(aux, description);
     }
 
-    /*
-    private void UpdateSpeedCostUI()
+    private void UpdateNewObjectsCostUI()
     {
-        UpgradeModel aux = UpgradesManager.Instance.FindUpgradeModelByName("Speed");
-        string description = "Increases delay before spawning enemy";
-        enemySpawnDelayUpgradeText.text = GetFullDescription(aux, description);
+        UpgradeModel aux = UpgradesManager.Instance.FindUpgradeModelByName("New Objects");
+        string description = "Unlocks stone to be collected";
+        if (aux.GetCurrentLevel() == 0)
+        {
+            description = "Increases chance of spawning stone";
+        }
+        newObjectsUpgradeText.text = GetFullDescription(aux, description);
     }
-    */
+
     private void UpdateMinimapCostUI()
     {
         UpgradeModel aux = UpgradesManager.Instance.FindUpgradeModelByName("Minimap");
