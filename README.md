@@ -15,6 +15,10 @@ ToDo:
 > More upgrades and related new mechanics<br>
 > Upgrades to increase dificulty that increase currency multiplier<br>
 
+- Test Suggestions:
+> Camera follows player when clicking, but you can still move with wasd<br>
+> Camera follows player when going to border of the screen<br>
+
 - Others:
 > UI Icons<br>
 > Music<br>
