@@ -156,10 +156,10 @@ public class UpgradesMenuUI : MonoBehaviour
     private void UpdateNewObjectsCostUI()
     {
         UpgradeModel aux = UpgradesManager.Instance.FindUpgradeModelByName("New Objects");
-        string description = "Unlocks stone to be collected";
+        string description = "Increases chance of spawning stone";
         if (aux.GetCurrentLevel() == 0)
         {
-            description = "Increases chance of spawning stone";
+            description = "Unlocks stone to be collected";
         }
         newObjectsUpgradeText.text = GetFullDescription(aux, description);
     }

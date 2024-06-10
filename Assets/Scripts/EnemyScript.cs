@@ -14,7 +14,7 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] private float stunTimerMax = 3f;
     [SerializeField] private float stunTimer = 0f;
 
-    const float INITIAL_SPEED = 5f;
+    const float INITIAL_SPEED = 10f;
     //SaveFile
     private SaveFile saveFile;
 

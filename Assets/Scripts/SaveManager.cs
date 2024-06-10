@@ -1,9 +1,9 @@
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
+//using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.Port;
+//using static UnityEditor.Experimental.GraphView.Port;
 
 public class SaveManager : MonoBehaviour
 {
@@ -83,7 +83,7 @@ public class SaveManager : MonoBehaviour
         UpgradeModel newObjects = new UpgradeModel();
         newObjects.SetName("New Objects");
         newObjects.SetUpgradeCost(100);
-        newObjects.SetCurrentLevel(3);
+        newObjects.SetCurrentLevel(0);
         newObjects.SetMaxLevel(3);
         newObjects.SetAddedMultiplier(-0.15f);
         upgradesList.Add(newObjects);
@@ -91,7 +91,7 @@ public class SaveManager : MonoBehaviour
         UpgradeModel miniMap = new UpgradeModel();
         miniMap.SetName("Minimap");
         miniMap.SetUpgradeCost(100);
-        miniMap.SetCurrentLevel(3);
+        miniMap.SetCurrentLevel(0);
         miniMap.SetMaxLevel(3);
         miniMap.SetAddedMultiplier(-0.15f);
         upgradesList.Add(miniMap);

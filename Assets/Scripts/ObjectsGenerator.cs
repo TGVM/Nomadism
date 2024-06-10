@@ -49,7 +49,7 @@ public class ObjectsGenerator : MonoBehaviour
             float randx = Random.Range(minx, maxx);
             float randz = Random.Range(minz, maxz);
 
-            while((randx>-3 && randx<3) && (randz > -3 && randz < 3))
+            while((randx>-2 && randx<2) && (randz > -2 && randz < 2))
             {
                 randx = Random.Range(minx, maxx);
                 randz = Random.Range(minz, maxz);
