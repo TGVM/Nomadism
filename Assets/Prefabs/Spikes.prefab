@@ -308,7 +308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stunTime: 3
-  name: stone
+  objectName: stone
 --- !u!135 &615237863047194618
 SphereCollider:
   m_ObjectHideFlags: 0

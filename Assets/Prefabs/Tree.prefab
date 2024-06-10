@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stunTime: 0
-  name: wood
+  objectName: wood
 --- !u!1 &2094112534930460756
 GameObject:
   m_ObjectHideFlags: 0

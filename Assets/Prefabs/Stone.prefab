@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stunTime: 0
-  name: stone
+  objectName: stone
 --- !u!1 &3979954198829489754
 GameObject:
   m_ObjectHideFlags: 0
