@@ -7,16 +7,12 @@ ToDo:
 
 - Gameplay:
 > Collision between enemy instances<br>
+> Final upgrade to fight with a final boss<br>
+> Runtime cutscene with final boss<br>
 > More upgrades and related new mechanics<br>
 > Upgrades to increase dificulty that increase currency multiplier<br>
-> Final upgrade to fight with a final boss<br>
-
-- UI:
-> Menus: Upgrade<br>
-> Upgrade Menu - already created, but not entirely functional yet<br>
-> Upgrades to implement: number of objects spawned, enemy speed <br>
 
 - Others:
 > UI Icons<br>
-> SFX & Music<br>
+> Music<br>
 > Better models<br>
