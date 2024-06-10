@@ -92,7 +92,26 @@ public class EnemyScript : MonoBehaviour
                 Destroy(other.gameObject);
             }
         }
+        else if (other.gameObject.CompareTag("Enemy"))
+        {
+            //stunned = true;
+            //stunTimerMax = 1f;
+            //DO SOMETHING
+        }
     }
 
+    private Vector3 RandomPosition()
+    {
+        float auxX = this.transform.position.x;
+        float auxY = this.transform.position.y;
+        float auxZ = this.transform.position.z;
+
+        Vector3 aux = Vector3.zero;
+        aux.x = Random.Range(auxX - 3f, auxX + 3f);
+        aux.y = auxY;
+        aux.z = Random.Range(auxZ - 3f, auxZ + 3f);
+
+        return aux;
+    }
 
 }

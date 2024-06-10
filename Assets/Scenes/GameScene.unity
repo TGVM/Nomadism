@@ -968,7 +968,7 @@ Transform:
   m_GameObject: {fileID: 277943188}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0.7071068, w: 0}
-  m_LocalPosition: {x: 0, y: 90, z: 0}
+  m_LocalPosition: {x: 0, y: 181.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1089,7 +1089,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalScale: {x: 20, y: 20, z: 20}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -2101,7 +2101,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 119
+    m_Bits: 1143
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -3057,10 +3057,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   treePrefab: {fileID: 1855523418300078165, guid: 3068041bcf5cce247876f63b4ca225c7, type: 3}
   stonePrefab: {fileID: 2771818017550163150, guid: 3eed1e777bfb34e439f4b59282301ecd, type: 3}
-  minx: -47
-  minz: -47
-  maxx: 47
-  maxz: 47
+  minx: -95
+  minz: -95
+  maxx: 95
+  maxz: 95
   numberOfObjects: 30
 --- !u!4 &1846782655
 Transform:

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5323920999811448003}
   - component: {fileID: 6954086134723519684}
   - component: {fileID: 2196881773042591165}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,9 +109,9 @@ Transform:
   m_GameObject: {fileID: 3877202005417572178}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 5, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 8193992003094785076}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
@@ -178,7 +178,7 @@ GameObject:
   - component: {fileID: 8396877740225406024}
   - component: {fileID: 4642439900339619229}
   - component: {fileID: 6271241195498321256}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,9 +262,9 @@ GameObject:
   - component: {fileID: -4120844700210609105}
   - component: {fileID: 6456014085475221598}
   - component: {fileID: -1572419105846268206}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -362,7 +362,7 @@ GameObject:
   - component: {fileID: 8011557007405789923}
   - component: {fileID: 1514017005620811767}
   - component: {fileID: 8250372246139252958}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
