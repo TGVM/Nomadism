@@ -103,7 +103,23 @@ public class SaveManager : MonoBehaviour
         numberOfEnemies.SetMaxLevel(3);
         numberOfEnemies.SetAddedMultiplier(1f);
         upgradesList.Add(numberOfEnemies);
-        
+
+        UpgradeModel numberOfObjectsSpawned = new UpgradeModel();
+        numberOfObjectsSpawned.SetName("Objects Spawned");
+        numberOfObjectsSpawned.SetUpgradeCost(50);
+        numberOfObjectsSpawned.SetCurrentLevel(0);
+        numberOfObjectsSpawned.SetMaxLevel(3);
+        numberOfObjectsSpawned.SetAddedMultiplier(-0.2f);
+        upgradesList.Add(numberOfObjectsSpawned);
+
+        UpgradeModel enemySpeed = new UpgradeModel();
+        enemySpeed.SetName("Enemy Speed");
+        enemySpeed.SetUpgradeCost(5);
+        enemySpeed.SetCurrentLevel(0);
+        enemySpeed.SetMaxLevel(5);
+        enemySpeed.SetAddedMultiplier(0.5f);
+        upgradesList.Add(enemySpeed);
+
         saveFile = new SaveFile();
         saveFile.currency = currency;
         saveFile.currencyMultiplier = currencyMultiplier;

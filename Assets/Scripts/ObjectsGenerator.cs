@@ -16,6 +16,7 @@ public class ObjectsGenerator : MonoBehaviour
     [SerializeField] private float maxz;
 
     [SerializeField] private int numberOfObjects;
+    const int INITIAL_OBJECTS = 30;
 
     private List<GameObject> allObjects;
 
@@ -26,6 +27,7 @@ public class ObjectsGenerator : MonoBehaviour
     {
         saveFile = SaveManager.Instance.LoadFromJson();
         allObjects = new List<GameObject>();
+        numberOfObjects = INITIAL_OBJECTS * (saveFile.upgradesList[8].GetCurrentLevel()+1);
         Instance = this;
     }
 

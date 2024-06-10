@@ -21,6 +21,8 @@ public class UpgradesMenuUI : MonoBehaviour
     [SerializeField] private Button newObjectsUpgradeButton;
     [SerializeField] private Button miniMapUpgradeButton;
     [SerializeField] private Button numberOfEnemiesUpgradeButton;
+    [SerializeField] private Button ObjectsSpawnedUpgradeButton;
+    [SerializeField] private Button enemySpeedUpgradeButton;
 
     [SerializeField] private TextMeshProUGUI speedUpgradeText;
     [SerializeField] private TextMeshProUGUI rangeUpgradeText;
@@ -30,6 +32,8 @@ public class UpgradesMenuUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI newObjectsUpgradeText;
     [SerializeField] private TextMeshProUGUI miniMapUpgradeText;
     [SerializeField] private TextMeshProUGUI numberOfEnemiesUpgradeText;
+    [SerializeField] private TextMeshProUGUI ObjectsSpawnedUpgradeText;
+    [SerializeField] private TextMeshProUGUI enemySpeedUpgradeText;
 
     [SerializeField] private Button continueButton;
 
@@ -69,7 +73,14 @@ public class UpgradesMenuUI : MonoBehaviour
         {
             UpgradesManager.Instance.Upgrade("Number of Enemies");
         });
-
+        ObjectsSpawnedUpgradeButton.onClick.AddListener(() =>
+        {
+            UpgradesManager.Instance.Upgrade("Objects Spawned");
+        });
+        enemySpeedUpgradeButton.onClick.AddListener(() =>
+        {
+            UpgradesManager.Instance.Upgrade("Enemy Speed");
+        });
         continueButton.onClick.AddListener(() =>
         {
             UpgradesManager.Instance.ContinueButton();
@@ -88,6 +99,8 @@ public class UpgradesMenuUI : MonoBehaviour
         UpdateNewObjectsCostUI();
         UpdateMinimapCostUI();
         UpdateNumberOfEnemiesCostUI();
+        UpdateObjectsSpawnedCostUI();
+        UpdateEnemySpeedCostUI();
     }
 
     private void VisualUpdate()
@@ -168,6 +181,22 @@ public class UpgradesMenuUI : MonoBehaviour
         string description = "Increases number of enemies";
 
         numberOfEnemiesUpgradeText.text = GetFullDescription(aux, description);
+    }
+
+    private void UpdateObjectsSpawnedCostUI()
+    {
+        UpgradeModel aux = UpgradesManager.Instance.FindUpgradeModelByName("Objects Spawned");
+        string description = "Increases number of spawned objects";
+
+        ObjectsSpawnedUpgradeText.text = GetFullDescription(aux, description);
+    }
+
+    private void UpdateEnemySpeedCostUI()
+    {
+        UpgradeModel aux = UpgradesManager.Instance.FindUpgradeModelByName("Enemy Speed");
+        string description = "Increases enemy speed";
+
+        enemySpeedUpgradeText.text = GetFullDescription(aux, description);
     }
 
     private string GetFullDescription(UpgradeModel aux, string description)

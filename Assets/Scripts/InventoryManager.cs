@@ -40,10 +40,12 @@ public class InventoryManager : MonoBehaviour
     public void FillInventory(SpawnedObject targetObject)
     {
         if (string.Compare(targetObject.getName(), "wood") == 0) { 
-            woodCount += 1; 
+            woodCount += 1;
+            SoundManager.Instance.PlayTreeChopSound(targetObject.transform.position);
         }
         else if (string.Compare(targetObject.getName(), "stone") == 0) {  
-            stoneCount += 1; 
+            stoneCount += 1;
+            SoundManager.Instance.PlayStoneBreakSound(targetObject.transform.position);
         }
     }
 

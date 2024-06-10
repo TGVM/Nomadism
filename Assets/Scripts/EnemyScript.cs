@@ -14,6 +14,7 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] private float stunTimerMax = 3f;
     [SerializeField] private float stunTimer = 0f;
 
+    const float INITIAL_SPEED = 5f;
     //SaveFile
     private SaveFile saveFile;
 
@@ -23,6 +24,7 @@ public class EnemyScript : MonoBehaviour
         saveFile = SaveManager.Instance.LoadFromJson();
         startDelay = saveFile.upgradesList[4].currentLevel;
         movePosition = playerRef.transform.position;
+        speed = INITIAL_SPEED + saveFile.upgradesList[9].GetCurrentLevel();
 
     }
 

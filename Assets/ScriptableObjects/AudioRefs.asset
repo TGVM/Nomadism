@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 454572147ed127a4b9f685fd30145f27, type: 3}
+  m_Name: AudioRefs
+  m_EditorClassIdentifier: 
+  steps:
+  - {fileID: 8300000, guid: d01d70867eb9dc1438db3a7049824b19, type: 3}
+  - {fileID: 8300000, guid: c9b9960569ddf5147bf1b64e8907b46d, type: 3}
+  treeChop: {fileID: 8300000, guid: 6e77b8dcbe9674040a900f56de3005d0, type: 3}
+  stoneBreak: {fileID: 8300000, guid: 6d29592cf5b774943921c6b56be09140, type: 3}

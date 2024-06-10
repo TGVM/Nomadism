@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Rendering;
+using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
 {
@@ -21,6 +23,7 @@ public class Player : MonoBehaviour
     private Vector3 movePosition;
     private List<GameObject> allObjects;
     private bool canControl = true;
+    private bool isWalking = false;
 
     //Serializable privates
     [SerializeField] private float speed;
@@ -33,6 +36,9 @@ public class Player : MonoBehaviour
 
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private PlayerParticleSystem _particleSystem;
+
+    private float footstepTimer;
+    private float footstepTimerMax = .7f;
 
     //SaveFile
     private SaveFile saveFile;
@@ -58,6 +64,17 @@ public class Player : MonoBehaviour
         {
             Movement();
             ObjectAction();
+            footstepTimer -= Time.deltaTime;
+            if (footstepTimer < 0)
+            {
+                footstepTimer = footstepTimerMax;
+
+                if (isWalking)
+                {
+                    SoundManager.Instance.PlayFootstepsSound(transform.position, 1f);
+
+                }
+            }
         }
     }
 
@@ -79,7 +96,9 @@ public class Player : MonoBehaviour
         }
         if(transform.position != movePosition)
         {
+
             _particleSystem.Play();
+            isWalking = true;
         }
         Vector3 targetDirection = movePosition - transform.position;
         Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, 2 * Time.deltaTime, 0);
