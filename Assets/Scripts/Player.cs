@@ -71,19 +71,21 @@ public class Player : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
             
-
-
             if (Physics.Raycast(ray, out hit))
             {
                 movePosition = hit.point;
                 movePosition.y = transform.position.y;
             }
         }
+        if(transform.position != movePosition)
+        {
+            _particleSystem.Play();
+        }
         Vector3 targetDirection = movePosition - transform.position;
         Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, 2 * Time.deltaTime, 0);
         transform.rotation = Quaternion.LookRotation(newDirection);
         transform.position = Vector3.MoveTowards(transform.position, movePosition, speed * Time.deltaTime);
-        _particleSystem.Play();
+        
     }
 
     void ObjectAction()
