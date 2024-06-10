@@ -32,6 +32,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform spikes;
 
     [SerializeField] private Transform spawnPoint;
+    [SerializeField] private PlayerParticleSystem _particleSystem;
 
     //SaveFile
     private SaveFile saveFile;
@@ -82,7 +83,7 @@ public class Player : MonoBehaviour
         Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, 2 * Time.deltaTime, 0);
         transform.rotation = Quaternion.LookRotation(newDirection);
         transform.position = Vector3.MoveTowards(transform.position, movePosition, speed * Time.deltaTime);
-
+        _particleSystem.Play();
     }
 
     void ObjectAction()
