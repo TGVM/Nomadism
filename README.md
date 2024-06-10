@@ -1,6 +1,9 @@
 "Nomadism" 
 A Roguelite gameproject
 
+v0.01 Gameplay recording
+https://www.youtube.com/watch?v=McEhB2fdrO4
+
 GameDoc: https://docs.google.com/document/d/1jWNeAnxgz9kS2-QmuflvmUAesLwplyN3HmB04SODR_E/edit?usp=sharing
 
 ToDo:
