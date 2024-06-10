@@ -7,13 +7,13 @@ public class MinimapCameraManager : MonoBehaviour
     SaveFile saveFile;
     [SerializeField] int minimapLevel;
     [SerializeField] bool isActive = false;
-    Camera camera;
+    Camera mainCamera;
 
     private void Awake()
     {
         saveFile = SaveManager.Instance.LoadFromJson();
         minimapLevel = saveFile.upgradesList[6].currentLevel;
-        camera = GetComponent<Camera>();
+        mainCamera = GetComponent<Camera>();
     }
 
     private void Start()
@@ -27,16 +27,16 @@ public class MinimapCameraManager : MonoBehaviour
         if(minimapLevel > 0)
         {
             isActive = true;
-            camera.cullingMask |= 1 << LayerMask.NameToLayer("Ground");
-            camera.cullingMask |= 1 << LayerMask.NameToLayer("PlayerMiniMap");
+            mainCamera.cullingMask |= 1 << LayerMask.NameToLayer("Ground");
+            mainCamera.cullingMask |= 1 << LayerMask.NameToLayer("PlayerMiniMap");
         }
         if(minimapLevel > 1)
         {
-            camera.cullingMask |= 1 << LayerMask.NameToLayer("ObjectsMiniMap");
+            mainCamera.cullingMask |= 1 << LayerMask.NameToLayer("ObjectsMiniMap");
         }
         if(minimapLevel > 2)
         {
-            camera.cullingMask |= 1 << LayerMask.NameToLayer("EnemyMiniMap");
+            mainCamera.cullingMask |= 1 << LayerMask.NameToLayer("EnemyMiniMap");
         }
 
     }

@@ -6,7 +6,7 @@ public class SpawnedObject : MonoBehaviour
 {
 
     [SerializeField] float stunTime;
-    [SerializeField] string name;
+    [SerializeField] string objectName;
 
     public float getStunTime()
     {
@@ -15,6 +15,6 @@ public class SpawnedObject : MonoBehaviour
 
     public string getName()
     {
-        return name;
+        return objectName;
     }
 }
