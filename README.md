@@ -6,7 +6,6 @@ GameDoc: https://docs.google.com/document/d/1jWNeAnxgz9kS2-QmuflvmUAesLwplyN3HmB
 ToDo:
 
 - Gameplay:
-> Procedural generation of maps<br>
 > More upgrades and related new mechanics<br>
 > Upgrades to increase dificulty that increase currency multiplier<br>
 > Final upgrade to fight with a final boss<br>
