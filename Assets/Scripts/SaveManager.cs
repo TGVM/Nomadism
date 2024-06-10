@@ -99,7 +99,7 @@ public class SaveManager : MonoBehaviour
         UpgradeModel numberOfEnemies = new UpgradeModel();
         numberOfEnemies.SetName("Number of Enemies");
         numberOfEnemies.SetUpgradeCost(500);
-        numberOfEnemies.SetCurrentLevel(3);
+        numberOfEnemies.SetCurrentLevel(0);
         numberOfEnemies.SetMaxLevel(3);
         numberOfEnemies.SetAddedMultiplier(1f);
         upgradesList.Add(numberOfEnemies);
